@@ -41,8 +41,8 @@
 
 ## Tecnologías y Herramientas (Tech Stack)
 
-- **Backend**: Spring Boot 3.x, Java 17/21, Spring Data JPA.
-- **Frontend**: React, javaScript (es6+),bootstrap
+- **Backend**: Spring Boot 3.2.5, Java 17/21, Spring Data JPA.
+- **Frontend**: React, JavaScript (ES6+), Bootstrap.
 - **Base de datos**: PostgreSQL para producción y H2 para desarrollo local.
 - **Otras herramientas**: Lombok, Spring Boot DevTools, Git, GitHub, Postman, Swagger, Docker.
 
@@ -94,7 +94,7 @@ Estas entidades están relacionadas entre sí para reflejar las interacciones y 
 ### Pasos para la Instalación
 1. Clona este repositorio en tu máquina local:
    ```bash
-   git clone [https://github.com/irwincol/cronoclase-grupo-5.git]
+   git clone https://github.com/[usuario-lider]/cronoclase-grupo-5.git
    ```
 2. Navega al directorio del proyecto:
    ```bash
@@ -102,24 +102,28 @@ Estas entidades están relacionadas entre sí para reflejar las interacciones y 
    ```
 
 ### Configuración de la Base de Datos
+
 - **H2 (Base de datos en memoria para desarrollo):**
   Crea un archivo `application-dev.properties` en el directorio `src/main/resources/` con el siguiente contenido:
   ```properties
   spring.datasource.url=jdbc:h2:mem:testdb
   spring.datasource.driverClassName=org.h2.Driver
   spring.datasource.username=sa
-  spring.datasource.password=password
+  spring.datasource.password=
   spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+  spring.h2.console.enabled=true
+  spring.jpa.hibernate.ddl-auto=update
   ```
 
 - **PostgreSQL (Base de datos para producción):**
-  Crea un archivo `application-dev.properties` en el directorio `src/main/resources/` con el siguiente contenido:
+  Crea un archivo `application-prod.properties` en el directorio `src/main/resources/` con el siguiente contenido:
   ```properties
-  spring.datasource.url=jdbc:postgresql://localhost:5432/cronoclase
+  spring.datasource.url=jdbc:postgresql://localhost:5432/[nombre_bd]
   spring.datasource.driverClassName=org.postgresql.Driver
-  spring.datasource.username=postgres
-  spring.datasource.password=tu-contraseña
+  spring.datasource.username=[usuario]
+  spring.datasource.password=[contraseña]
   spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
+  spring.jpa.hibernate.ddl-auto=update
   ```
 
 ### Ejecución de la Aplicación
